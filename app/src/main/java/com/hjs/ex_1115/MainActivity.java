@@ -23,22 +23,24 @@ public class MainActivity extends AppCompatActivity {
         img2 = findViewById(R.id.img2);
 
 
-        back1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                img1.setVisibility(View.VISIBLE);
-                img2.setVisibility(View.INVISIBLE);
-            }
-        });
-        back2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                img2.setVisibility(View.VISIBLE);
-                img1.setVisibility(View.INVISIBLE);
-            }
-        });
+        back1.setOnClickListener(click);
+        back2.setOnClickListener(click);
     }
 
-
+    View.OnClickListener click = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.back1 :
+                    img1.setVisibility(View.VISIBLE);
+                    img2.setVisibility(View.INVISIBLE);
+                    break;
+                case R.id.back2 :
+                    img2.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    break;
+            }
+        }
+    };
 
 }
